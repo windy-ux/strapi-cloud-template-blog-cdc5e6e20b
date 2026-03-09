@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "biographies",
+  "info": {
+    "singularName": "biography",
+    "pluralName": "biographies",
+    "displayName": "Biography"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "SEO": {
+      "type": "component",
+      "component": "shared.seo",
+      "repeatable": false
+    },
+    "content": {
+      "type": "richtext"
+    }
+  }
+}

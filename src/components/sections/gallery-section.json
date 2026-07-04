@@ -9,10 +9,10 @@
     "title": {
       "type": "string"
     },
-    "images": {
-      "type": "media",
-      "multiple": true,
-      "allowedTypes": ["images"]
+    "paintings": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::painting.painting"
     }
   }
 }

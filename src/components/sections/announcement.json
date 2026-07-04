@@ -13,16 +13,21 @@
       "type": "string"
     },
     "vernissageDate": {
-      "type": "string"
+      "type": "datetime"
     },
-    "duration": {
-      "type": "string"
+    "exhibitionStart": {
+      "type": "date"
+    },
+    "exhibitionEnd": {
+      "type": "date"
     },
     "curator": {
       "type": "string"
     },
     "link": {
-      "type": "string"
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.link"
     },
     "image": {
       "type": "media",

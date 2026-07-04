@@ -13,7 +13,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-07-04T11:46:41.903Z"
+    "x-generation-date": "2026-07-04T12:23:11.169Z"
   },
   "openapi": "3.0.0",
   "x-strapi-config": {
@@ -4706,6 +4706,30 @@
           }
         }
       },
+      "SharedLinkComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "url": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          },
+          "newTab": {
+            "type": "boolean"
+          }
+        }
+      },
       "SectionsAnnouncementComponent": {
         "type": "object",
         "properties": {
@@ -4732,16 +4756,22 @@
             "type": "string"
           },
           "vernissageDate": {
-            "type": "string"
+            "type": "string",
+            "format": "date-time"
           },
-          "duration": {
-            "type": "string"
+          "exhibitionStart": {
+            "type": "string",
+            "format": "date"
+          },
+          "exhibitionEnd": {
+            "type": "string",
+            "format": "date"
           },
           "curator": {
             "type": "string"
           },
           "link": {
-            "type": "string"
+            "$ref": "#/components/schemas/SharedLinkComponent"
           },
           "image": {
             "type": "object",

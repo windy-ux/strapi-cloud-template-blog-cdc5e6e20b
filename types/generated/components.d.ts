@@ -7,12 +7,13 @@ export interface SectionsAnnouncement extends Struct.ComponentSchema {
   };
   attributes: {
     curator: Schema.Attribute.String;
-    duration: Schema.Attribute.String;
+    exhibitionEnd: Schema.Attribute.Date;
     exhibitionName: Schema.Attribute.String & Schema.Attribute.Required;
+    exhibitionStart: Schema.Attribute.Date;
     image: Schema.Attribute.Media<'images'>;
-    link: Schema.Attribute.String;
+    link: Schema.Attribute.Component<'shared.link', false>;
     venue: Schema.Attribute.String;
-    vernissageDate: Schema.Attribute.String;
+    vernissageDate: Schema.Attribute.DateTime;
   };
 }
 
@@ -36,6 +37,19 @@ export interface SectionsTextBlock extends Struct.ComponentSchema {
   attributes: {
     body: Schema.Attribute.RichText;
     heading: Schema.Attribute.String;
+  };
+}
+
+export interface SharedLink extends Struct.ComponentSchema {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'Link';
+    icon: 'link';
+  };
+  attributes: {
+    newTab: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String & Schema.Attribute.Required;
   };
 }
 
@@ -84,6 +98,7 @@ declare module '@strapi/strapi' {
       'sections.announcement': SectionsAnnouncement;
       'sections.hero': SectionsHero;
       'sections.text-block': SectionsTextBlock;
+      'shared.link': SharedLink;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'ui.button': UiButton;

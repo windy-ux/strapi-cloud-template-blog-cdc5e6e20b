@@ -17,6 +17,18 @@ export interface SectionsAnnouncement extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsGallerySection extends Struct.ComponentSchema {
+  collectionName: 'components_sections_gallery_sections';
+  info: {
+    displayName: 'Gallery Section';
+    icon: 'images';
+  };
+  attributes: {
+    images: Schema.Attribute.Media<'images', true>;
+    title: Schema.Attribute.String;
+  };
+}
+
 export interface SectionsHero extends Struct.ComponentSchema {
   collectionName: 'components_sections_heroes';
   info: {
@@ -96,6 +108,7 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'sections.announcement': SectionsAnnouncement;
+      'sections.gallery-section': SectionsGallerySection;
       'sections.hero': SectionsHero;
       'sections.text-block': SectionsTextBlock;
       'shared.link': SharedLink;

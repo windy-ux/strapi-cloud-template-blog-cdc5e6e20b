@@ -1,38 +1,41 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
-export interface SharedHero extends Struct.ComponentSchema {
-  collectionName: 'components_shared_heroes';
+export interface SectionsAnnouncement extends Struct.ComponentSchema {
+  collectionName: 'components_sections_announcements';
+  info: {
+    displayName: 'Announcement';
+  };
+  attributes: {
+    curator: Schema.Attribute.String;
+    duration: Schema.Attribute.String;
+    exhibitionName: Schema.Attribute.String & Schema.Attribute.Required;
+    image: Schema.Attribute.Media<'images'>;
+    link: Schema.Attribute.String;
+    venue: Schema.Attribute.String;
+    vernissageDate: Schema.Attribute.String;
+  };
+}
+
+export interface SectionsHero extends Struct.ComponentSchema {
+  collectionName: 'components_sections_heroes';
   info: {
     displayName: 'Hero';
   };
   attributes: {
-    button: Schema.Attribute.Component<'ui.button', true>;
-    image: Schema.Attribute.Media<'images' | 'files'>;
-    text: Schema.Attribute.RichText;
-    title: Schema.Attribute.String;
+    heading: Schema.Attribute.String;
+    image: Schema.Attribute.Media<'images'>;
+    subheading: Schema.Attribute.String;
   };
 }
 
-export interface SharedMedia extends Struct.ComponentSchema {
-  collectionName: 'components_shared_media';
+export interface SectionsTextBlock extends Struct.ComponentSchema {
+  collectionName: 'components_sections_text_blocks';
   info: {
-    displayName: 'Media';
-    icon: 'file-video';
+    displayName: 'Text Block';
   };
   attributes: {
-    file: Schema.Attribute.Media<'images' | 'files' | 'videos'>;
-  };
-}
-
-export interface SharedQuote extends Struct.ComponentSchema {
-  collectionName: 'components_shared_quotes';
-  info: {
-    displayName: 'Quote';
-    icon: 'indent';
-  };
-  attributes: {
-    body: Schema.Attribute.Text;
-    title: Schema.Attribute.String;
+    body: Schema.Attribute.RichText;
+    heading: Schema.Attribute.String;
   };
 }
 
@@ -64,18 +67,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedSlider extends Struct.ComponentSchema {
-  collectionName: 'components_shared_sliders';
-  info: {
-    description: '';
-    displayName: 'Slider';
-    icon: 'address-book';
-  };
-  attributes: {
-    files: Schema.Attribute.Media<'images', true>;
-  };
-}
-
 export interface UiButton extends Struct.ComponentSchema {
   collectionName: 'components_ui_buttons';
   info: {
@@ -90,12 +81,11 @@ export interface UiButton extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'shared.hero': SharedHero;
-      'shared.media': SharedMedia;
-      'shared.quote': SharedQuote;
+      'sections.announcement': SectionsAnnouncement;
+      'sections.hero': SectionsHero;
+      'sections.text-block': SectionsTextBlock;
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
-      'shared.slider': SharedSlider;
       'ui.button': UiButton;
     }
   }

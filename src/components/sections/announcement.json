@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_announcements",
+  "info": {
+    "displayName": "Announcement"
+  },
+  "options": {},
+  "attributes": {
+    "exhibitionName": {
+      "type": "string",
+      "required": true
+    },
+    "venue": {
+      "type": "string"
+    },
+    "vernissageDate": {
+      "type": "string"
+    },
+    "duration": {
+      "type": "string"
+    },
+    "curator": {
+      "type": "string"
+    },
+    "link": {
+      "type": "string"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": ["images"]
+    }
+  }
+}

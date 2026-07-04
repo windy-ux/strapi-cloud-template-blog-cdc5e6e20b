@@ -11,15 +11,23 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
     "SEO": {
       "type": "component",
       "component": "shared.seo",
-      "repeatable": true
+      "repeatable": false
     },
-    "dynamicZone": {
+    "sections": {
       "type": "dynamiczone",
       "components": [
-        "shared.hero"
+        "sections.hero",
+        "sections.announcement",
+        "sections.text-block"
       ]
     }
   }

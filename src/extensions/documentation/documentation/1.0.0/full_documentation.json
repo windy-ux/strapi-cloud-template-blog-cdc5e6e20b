@@ -13,7 +13,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "2026-07-04T12:23:11.169Z"
+    "x-generation-date": "2026-07-04T14:32:59.254Z"
   },
   "openapi": "3.0.0",
   "x-strapi-config": {
@@ -2468,11 +2468,17 @@
           "data": {
             "type": "object",
             "properties": {
+              "title": {
+                "type": "string"
+              },
               "SEO": {
                 "$ref": "#/components/schemas/SharedSeoComponent"
               },
-              "content": {
-                "type": "string"
+              "sections": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/SectionsTextBlockComponent"
+                }
               },
               "locale": {
                 "type": "string"
@@ -2546,11 +2552,17 @@
           "documentId": {
             "type": "string"
           },
+          "title": {
+            "type": "string"
+          },
           "SEO": {
             "$ref": "#/components/schemas/SharedSeoComponent"
           },
-          "content": {
-            "type": "string"
+          "sections": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SectionsTextBlockComponent"
+            }
           },
           "createdAt": {
             "type": "string",
@@ -2621,11 +2633,17 @@
                 "documentId": {
                   "type": "string"
                 },
+                "title": {
+                  "type": "string"
+                },
                 "SEO": {
                   "$ref": "#/components/schemas/SharedSeoComponent"
                 },
-                "content": {
-                  "type": "string"
+                "sections": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SectionsTextBlockComponent"
+                  }
                 },
                 "createdAt": {
                   "type": "string",
@@ -2906,6 +2924,33 @@
             }
           },
           "structuredData": {}
+        }
+      },
+      "SectionsTextBlockComponent": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "oneOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "number"
+              }
+            ]
+          },
+          "__component": {
+            "type": "string",
+            "enum": [
+              "sections.text-block"
+            ]
+          },
+          "heading": {
+            "type": "string"
+          },
+          "body": {
+            "type": "string"
+          }
         }
       },
       "GlobalRequest": {
@@ -4943,33 +4988,6 @@
                 }
               }
             }
-          }
-        }
-      },
-      "SectionsTextBlockComponent": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "oneOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "number"
-              }
-            ]
-          },
-          "__component": {
-            "type": "string",
-            "enum": [
-              "sections.text-block"
-            ]
-          },
-          "heading": {
-            "type": "string"
-          },
-          "body": {
-            "type": "string"
           }
         }
       },

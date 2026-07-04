@@ -11,13 +11,18 @@
   },
   "pluginOptions": {},
   "attributes": {
+    "title": {
+      "type": "string"
+    },
     "SEO": {
       "type": "component",
       "component": "shared.seo",
       "repeatable": false
     },
-    "content": {
-      "type": "richtext"
+    "sections": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.text-block"
     }
   }
 }

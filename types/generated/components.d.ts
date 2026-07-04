@@ -24,7 +24,7 @@ export interface SectionsGallerySection extends Struct.ComponentSchema {
     icon: 'images';
   };
   attributes: {
-    images: Schema.Attribute.Media<'images', true>;
+    paintings: Schema.Attribute.Relation<'oneToMany', 'api::painting.painting'>;
     title: Schema.Attribute.String;
   };
 }
